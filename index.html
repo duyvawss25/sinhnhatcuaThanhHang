@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chúc Mừng Sinh Nhật! 🎉</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+        }
+
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            max-width: 800px;
+            width: 90%;
+            position: relative;
+        }
+
+        .birthday-title {
+            font-size: 3.5em;
+            color: #fff;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            animation: bounce 2s infinite;
+        }
+
+        .birthday-message {
+            font-size: 1.5em;
+            color: #fff;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            line-height: 1.6;
+        }
+
+        .cake {
+            font-size: 6em;
+            margin: 30px 0;
+            animation: rotate 3s ease-in-out infinite;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .cake:hover {
+            transform: scale(1.2);
+        }
+
+        .balloons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .balloon {
+            font-size: 3em;
+            animation: float 2s ease-in-out infinite;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .balloon:nth-child(1) { animation-delay: 0s; }
+        .balloon:nth-child(2) { animation-delay: 0.5s; }
+        .balloon:nth-child(3) { animation-delay: 1s; }
+        .balloon:nth-child(4) { animation-delay: 1.5s; }
+
+        .balloon:hover {
+            transform: scale(1.3);
+        }
+
+        .celebration-btn {
+            background: linear-gradient(45deg, #ff6b6b, #feca57);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            border-radius: 50px;
+            cursor: pointer;
+            margin: 20px 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .celebration-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: #ff6b6b;
+            animation: confetti-fall 3s linear infinite;
+        }
+
+        .fireworks {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        .firework {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            animation: firework-explosion 1s ease-out forwards;
+        }
+
+        .gift-box {
+            font-size: 2.5em;
+            margin: 20px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            animation: gift-bounce 2s ease-in-out infinite;
+        }
+
+        .gift-box:hover {
+            transform: scale(1.2) rotate(10deg);
+        }
+
+        .wishes {
+            color: #fff;
+            font-size: 1.2em;
+            margin: 30px 0;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .music-note {
+            position: absolute;
+            font-size: 1.5em;
+            color: #feca57;
+            animation: music-float 4s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-30px); }
+            60% { transform: translateY(-15px); }
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            25% { transform: rotate(5deg); }
+            50% { transform: rotate(0deg); }
+            75% { transform: rotate(-5deg); }
+            100% { transform: rotate(0deg); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes confetti-fall {
+            0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+        }
+
+        @keyframes firework-explosion {
+            0% { transform: scale(0); opacity: 1; }
+            100% { transform: scale(1); opacity: 0; }
+        }
+
+        @keyframes gift-bounce {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes music-float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            25% { transform: translateY(-15px) rotate(5deg); }
+            50% { transform: translateY(-30px) rotate(0deg); }
+            75% { transform: translateY(-15px) rotate(-5deg); }
+        }
+
+        .age-counter {
+            font-size: 4em;
+            color: #feca57;
+            margin: 20px 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        @media (max-width: 768px) {
+            .birthday-title { font-size: 2.5em; }
+            .birthday-message { font-size: 1.2em; }
+            .cake { font-size: 4em; }
+            .balloon { font-size: 2em; }
+            .container { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="music-note" style="top: 10%; left: 10%;">♪</div>
+        <div class="music-note" style="top: 20%; right: 15%;">♫</div>
+        <div class="music-note" style="bottom: 30%; left: 20%;">♪</div>
+        <div class="music-note" style="bottom: 15%; right: 10%;">♫</div>
+
+        <h1 class="birthday-title">🎉 CHÚC MỪNG SINH NHẬT! 🎉</h1>
+        
+        <div class="age-counter" id="ageCounter">🎂</div>
+        
+        <p class="birthday-message">
+            Chúc bạn một ngày sinh nhật thật vui vẻ và ý nghĩa!<br>
+            Mong rằng tuổi mới sẽ mang đến cho bạn nhiều niềm vui, hạnh phúc và thành công!
+        </p>
+
+        <div class="cake" onclick="blowCandles()">🎂</div>
+
+        <div class="balloons">
+            <div class="balloon" onclick="popBalloon(this)">🎈</div>
+            <div class="balloon" onclick="popBalloon(this)">🎈</div>
+            <div class="balloon" onclick="popBalloon(this)">🎈</div>
+            <div class="balloon" onclick="popBalloon(this)">🎈</div>
+        </div>
+
+        <div class="gift-box" onclick="openGift()">🎁</div>
+
+        <div class="wishes">
+            <h3>💝 Lời Chúc Sinh Nhật 💝</h3>
+            <p>Chúc bạn luôn khỏe mạnh, hạnh phúc và thành đạt trong cuộc sống!</p>
+            <p>Mong rằng mọi ước mơ của bạn sẽ trở thành hiện thực!</p>
+        </div>
+
+        <button class="celebration-btn" onclick="createFireworks()">🎆 Bắn Pháo Hoa</button>
+        <button class="celebration-btn" onclick="createConfetti()">🎊 Tung Hoa Giấy</button>
+        <button class="celebration-btn" onclick="playMusic()">🎵 Phát Nhạc</button>
+    </div>
+
+    <div class="fireworks" id="fireworks"></div>
+
+    <script>
+        let confettiCount = 0;
+        let musicPlaying = false;
+        let audioContext = null;
+
+        function blowCandles() {
+            const cake = document.querySelector('.cake');
+            cake.innerHTML = '🕯️';
+            cake.style.animation = 'none';
+            
+            setTimeout(() => {
+                cake.innerHTML = '🎂';
+                cake.style.animation = 'rotate 3s ease-in-out infinite';
+            }, 2000);
+            
+            createFireworks();
+            showMessage('🎉 Chúc mừng! Bạn đã thổi nến thành công!');
+        }
+
+        function popBalloon(balloon) {
+            balloon.style.transform = 'scale(1.5)';
+            balloon.style.opacity = '0.5';
+            
+            setTimeout(() => {
+                balloon.innerHTML = '💥';
+                balloon.style.transform = 'scale(1)';
+                balloon.style.opacity = '1';
+            }, 200);
+            
+            setTimeout(() => {
+                balloon.innerHTML = '🎈';
+            }, 1000);
+            
+            playPopSound();
+        }
+
+        function openGift() {
+            const gift = document.querySelector('.gift-box');
+            gift.innerHTML = '🎊';
+            gift.style.transform = 'scale(1.3)';
+            
+            setTimeout(() => {
+                gift.innerHTML = '🎁';
+                gift.style.transform = 'scale(1)';
+            }, 1500);
+            
+            createConfetti();
+            showMessage('🎁 Surprise! Chúc bạn sinh nhật vui vẻ!');
+        }
+
+        function createFireworks() {
+            const fireworksContainer = document.getElementById('fireworks');
+            const colors = ['#ff6b6b', '#feca57', '#48dbfb', '#ff9ff3', '#54a0ff'];
+            
+            for (let i = 0; i < 20; i++) {
+                setTimeout(() => {
+                    const firework = document.createElement('div');
+                    firework.className = 'firework';
+                    firework.style.background = colors[Math.floor(Math.random() * colors.length)];
+                    firework.style.left = Math.random() * 100 + '%';
+                    firework.style.top = Math.random() * 100 + '%';
+                    firework.style.boxShadow = `0 0 20px ${colors[Math.floor(Math.random() * colors.length)]}`;
+                    
+                    fireworksContainer.appendChild(firework);
+                    
+                    setTimeout(() => {
+                        firework.remove();
+                    }, 1000);
+                }, i * 100);
+            }
+        }
+
+        function createConfetti() {
+            const colors = ['#ff6b6b', '#feca57', '#48dbfb', '#ff9ff3', '#54a0ff', '#5f27cd'];
+            
+            for (let i = 0; i < 50; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'confetti';
+                    confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.left = Math.random() * 100 + '%';
+                    confetti.style.animationDelay = Math.random() * 3 + 's';
+                    
+                    document.body.appendChild(confetti);
+                    
+                    setTimeout(() => {
+                        confetti.remove();
+                    }, 3000);
+                }, i * 50);
+            }
+        }
+
+        function playMusic() {
+            if (!musicPlaying) {
+                playHappyBirthday();
+                musicPlaying = true;
+                setTimeout(() => {
+                    musicPlaying = false;
+                }, 5000);
+            }
+        }
+
+        function playHappyBirthday() {
+            if (!audioContext) {
+                audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            }
+            
+            const notes = [
+                {freq: 262, duration: 0.5}, // C
+                {freq: 262, duration: 0.5}, // C
+                {freq: 294, duration: 1},   // D
+                {freq: 262, duration: 1},   // C
+                {freq: 349, duration: 1},   // F
+                {freq: 330, duration: 2},   // E
+            ];
+            
+            let time = audioContext.currentTime;
+            notes.forEach(note => {
+                const oscillator = audioContext.createOscillator();
+                const gainNode = audioContext.createGain();
+                
+                oscillator.connect(gainNode);
+                gainNode.connect(audioContext.destination);
+                
+                oscillator.frequency.value = note.freq;
+                oscillator.type = 'sine';
+                
+                gainNode.gain.setValueAtTime(0.3, time);
+                gainNode.gain.exponentialRampToValueAtTime(0.01, time + note.duration);
+                
+                oscillator.start(time);
+                oscillator.stop(time + note.duration);
+                
+                time += note.duration;
+            });
+        }
+
+        function playPopSound() {
+            if (!audioContext) {
+                audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            }
+            
+            const oscillator = audioContext.createOscillator();
+            const gainNode = audioContext.createGain();
+            
+            oscillator.connect(gainNode);
+            gainNode.connect(audioContext.destination);
+            
+            oscillator.frequency.value = 800;
+            oscillator.type = 'square';
+            
+            gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+            gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.1);
+            
+            oscillator.start(audioContext.currentTime);
+            oscillator.stop(audioContext.currentTime + 0.1);
+        }
+
+        function showMessage(message) {
+            const messageDiv = document.createElement('div');
+            messageDiv.style.position = 'fixed';
+            messageDiv.style.top = '20px';
+            messageDiv.style.left = '50%';
+            messageDiv.style.transform = 'translateX(-50%)';
+            messageDiv.style.background = 'rgba(0, 0, 0, 0.8)';
+            messageDiv.style.color = 'white';
+            messageDiv.style.padding = '10px 20px';
+            messageDiv.style.borderRadius = '20px';
+            messageDiv.style.fontSize = '1.2em';
+            messageDiv.style.zIndex = '1001';
+            messageDiv.textContent = message;
+            
+            document.body.appendChild(messageDiv);
+            
+            setTimeout(() => {
+                messageDiv.remove();
+            }, 3000);
+        }
+
+        // Tự động tạo hiệu ứng khi trang load
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                createConfetti();
+            }, 1000);
+            
+            setTimeout(() => {
+                createFireworks();
+            }, 2000);
+        });
+
+        // Cập nhật số tuổi ngẫu nhiên
+        function updateAge() {
+            const ages = ['18', '21', '25', '30', '🎂', '🎉'];
+            const ageCounter = document.getElementById('ageCounter');
+            let currentIndex = 0;
+            
+            setInterval(() => {
+                ageCounter.textContent = ages[currentIndex];
+                currentIndex = (currentIndex + 1) % ages.length;
+            }, 3000);
+        }
+
+        updateAge();
+    </script>
+</body>
+</html>
